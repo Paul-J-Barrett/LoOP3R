@@ -6,6 +6,14 @@
 * Twitter: @codersjunto
 * Github:  github.com/paul-j-barrett
 
+## Overview
+
+The files in this repository cover various looping in javascript and attempt to make a small testing framework to demonstrate the performance of various types of loops. 
+
+If you are on a linux box with node installed you can run ./test.sh which will run each of the javascript files and out put the timings. You should disregard the first test of each run because the javascript interpretor is setting up the array and functions so we need to disregard this result.
+
+I had to limit the number of loops in order to keep the for_each_ managable. If you throw out the for_each_ you could increase the 1000000 to 10000000 which will show the differences a little better.
+
 ## do while
 The basic idea behind do while is that you want to loop until a condition is met.
 
