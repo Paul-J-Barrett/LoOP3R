@@ -8,16 +8,17 @@
 
 ## Overview
 
-The files in this repository cover various looping in javascript and attempt to make a small testing framework to demonstrate the performance of various types of loops. 
+The files in this repository cover various looping statements, techniques, and optimizations in javascript and I will make a small testing framework to demonstrate the performance of various types of loops and patterns. 
 
-If you are on a linux box with node installed you can run ./test.sh which will run each of the javascript files and out put the timings. You should disregard the first test of each run because the javascript interpretor is setting up the array and functions so we need to disregard this result.
+If you are on a linux box with node installed you can run ./test.sh which will run each of the javascript files and output the timings. You should disregard the first test of each run because the javascript interpretor is setting up the array and functions. This also explains why I run each test 10 times.
 
-I had to limit the number of loops in order to keep the for_each_ managable. If you throw out the for_each_ you could increase the 1000000 to 10000000 which will show the differences a little better.
+I had to limit the number of loops in order to keep the foreach and forin test code managable. If you throw out the foreach you could increase the 1000000 to 10000000 which will show the differences in the other looping examples.
 
-## do while
+## The Loops
+### do while
 The basic idea behind do while is that you want to loop until a condition is met.
 
-Some possible examples read lines of a file until you reach EOF.
+Some possible examples: Read lines of a file until you reach EOF.
 Read from the database while records exist.
 
 Syntax:
@@ -30,7 +31,7 @@ Syntax:
 ```
 Note the braces {} they should be used when you are doing more than one thing/statement.
 
-## while
+### while
 The while statement is almost exactly the same as do while but you run your condition test first which in my example above of reading from a database or a file might be preferrable. QUESTION: WHY?
 
 Syntax:
@@ -43,7 +44,7 @@ Syntax:
     }
 ```
 
-## for
+### for
 The for statement is generally used when you have a predefined number of times you wish to do the loop. It is also frequently nested which is more common than nesting while or do..while loops.
 You might use for loops to iterate over an array or an object. You would use nested for loops for a multi dimensional array.
 
@@ -67,10 +68,10 @@ You can also do multiple setup or increments as in this example.
 
 What does the above display.
 
-## for..in
+### for..in
 
 
-## Array forEach
+### Array forEach
 
 ## Optimizations
 ### Array Lengths
