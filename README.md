@@ -2,20 +2,20 @@
 
 * Paul J. Barrett
 * IT Director Las Vegas Athletic Clubs
-* Email:   barrettpaulj@gmail.com 
 * Twitter: @codersjunto
 * Github:  github.com/paul-j-barrett
 
 ## Overview
 
-The files in this repository cover various looping statements, techniques, and optimizations in javascript and I will make a small testing framework to demonstrate the performance of various types of loops and patterns. 
+The files in this repository cover various looping statements, techniques, and optimizations in Javascript and I will make a small testing framework to demonstrate the performance of various types of loops and patterns. 
 
-If you are on a linux box with node installed you can run ./test.sh which will run each of the javascript files and output the timings. You should disregard the first test of each run because the javascript interpretor is setting up the array and functions. This also explains why I run each test 10 times.
+If you are on a Linux box with node installed you can run ./test.sh which will run each of the Javascript files and output the timings. You should disregard the first test of each run because the javascript interpretor is setting up the array and functions. This also explains why I run each test 10 times.
 
-I had to limit the number of loops in order to keep the foreach and forin test code managable. If you throw out the foreach you could increase the 1000000 to 10000000 which will show the differences in the other looping examples.
+I had to limit the number of loops in order to keep the foreach and forin test code manageable. If you throw out the foreach you could increase the 1000000 to 10000000 which will show the differences in the other looping examples.
 
 ## The Loops
 ### do while
+
 The basic idea behind do while is that you want to loop until a condition is met.
 
 Some possible examples: Read lines of a file until you reach EOF.
@@ -32,7 +32,8 @@ Syntax:
 Note the braces {} they should be used when you are doing more than one thing/statement.
 
 ### while
-The while statement is almost exactly the same as do while but you run your condition test first which in my example above of reading from a database or a file might be preferrable. QUESTION: WHY?
+
+The while statement is almost exactly the same as do while but you run your condition test first which in my example above of reading from a database or a file might be preferable. QUESTION: WHY?
 
 Syntax:
 
@@ -43,8 +44,20 @@ Syntax:
     statements;
     }
 ```
+#### INFINITE LOOP
+
+while(true) {};
+ or
+while(1){};
+
+#### No LOOP
+
+while(false) {}; 
+or
+while(0) {};
 
 ### for
+
 The for statement is generally used when you have a predefined number of times you wish to do the loop. It is also frequently nested which is more common than nesting while or do..while loops.
 You might use for loops to iterate over an array or an object. You would use nested for loops for a multi dimensional array.
 
@@ -68,6 +81,22 @@ You can also do multiple setup or increments as in this example.
 
 What does the above display.
 
+#### CAUTION
+
+You need to be careful that you don't create an infinite loop accidentally.
+
+```javascript
+for(i=0;i<10;i++) {i=0;}
+```
+#### BREAK
+
+You can break out of your loop if a certain condition is met.
+```javascript
+for(i=0;i<10;i++) {
+  if(i=5) break;
+  console.log(i); // 0 1 2 3 4
+}
+
 ### for..in
 
 
@@ -75,6 +104,7 @@ What does the above display.
 
 ## Optimizations
 ### Array Lengths
+
 You can use something like this. The reason this is not good is that it is accessing the length property of the array over and over again.
 
 ```javascript
@@ -98,7 +128,7 @@ But the optimal form for speed will be something like this. But you will be proc
 
 ### Scope
 
-In general the closer your variables are declared to or in your loop the better it will perform. This is caused by how the javascript interpretor chains scope from inner to outer declarations. So your global variables will always be slower than a variable declared in your function.
+In general the closer your variables are declared to or in your loop the better it will perform. This is caused by how the Javascript interpretor chains scope from inner to outer declarations. So your global variables will always be slower than a variable declared in your function.
 
 ### Dom Elements
 As in the scope or the Array Lengths example you do not want to access the DOM inside your loop if you can help it.
@@ -112,7 +142,7 @@ You should fetch the elements before working on them.
 ```
 
 
-### Accessing Properites
+### Accessing Properties
 Avoid the for in loop if at all possible.
 
 ## References
