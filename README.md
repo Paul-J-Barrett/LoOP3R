@@ -88,6 +88,7 @@ You need to be careful that you don't create an infinite loop accidentally.
 ```javascript
 for(i=0;i<10;i++) {i=0;}
 ```
+
 #### BREAK
 
 You can break out of your loop if a certain condition is met.
@@ -96,21 +97,49 @@ for(i=0;i<10;i++) {
   if(i=5) break;
   console.log(i); // 0 1 2 3 4
 }
+```
 
 ### for..in
 
+With the for in loop we decalare a variable to act upon for each element in an array.
+
+Example:
+
+```javascript
+function test() {
+var ar = new Array(1000000);
+for( i in ar) {
+  i =1;
+  }
+}
+```
 
 ### Array forEach
+
+With this loop you iterate through an array and call a function to be operated on each element.
+
+Example:
+```javascript
+function changeit(i) { i=1 };  //function that will change the element
+
+function test() {
+var ar = new Array(1000000);
+ar.forEach(changeit); //iterates through the elements of the array
+}
+```
+
 
 ## Optimizations
 ### Array Lengths
 
-You can use something like this. The reason this is not good is that it is accessing the length property of the array over and over again.
+You might have done something like this next example. The reason this is not optimal is that it is accessing the length property of the array over and over again which slows things down each time it checks to see if the condition is met.
 
+#### Shame
 ```javascript
   for(var i=0; i<myArray.length; i++) dosomething;
 ```
 
+#### Better
 A slightly better pattern would be
 
 ```javascript
@@ -118,6 +147,7 @@ A slightly better pattern would be
   for(var i=0; i<l; i++) dosomething;
 ```
 
+#### Optimal
 But the optimal form for speed will be something like this. But you will be processing from the end of the array to the beginning.
 
 ```javascript
@@ -125,6 +155,28 @@ But the optimal form for speed will be something like this. But you will be proc
   while(k--) dosomething;
 ```
 
+#### Supper
+Super optimization Duff's Device created by programmer Tom Duff of Lucas Films was to unroll the loop in C, and was later converted to javascript by Jeff Greenberg (see references at end)
+
+```javascript
+var iterations = Math.ceil(values.length / 8);
+var startAt = values.length % 8;
+var i = 0;
+
+do {
+    switch(startAt){
+        case 0: process(values[i++]);
+        case 7: process(values[i++]);
+        case 6: process(values[i++]);
+        case 5: process(values[i++]);
+        case 4: process(values[i++]);
+        case 3: process(values[i++]);
+        case 2: process(values[i++]);
+        case 1: process(values[i++]);
+    }
+    startAt = 0;
+} while (--iterations > 0);
+```
 
 ### Scope
 
@@ -146,7 +198,9 @@ You should fetch the elements before working on them.
 Avoid the for in loop if at all possible.
 
 ## References
-http://archive.oreilly.com/pub/a/server-administration/excerpts/even-faster-websites/writing-efficient-javascript.html
+Nicholas C. Zakas - http://archive.oreilly.com/pub/a/server-administration/excerpts/even-faster-websites/writing-efficient-javascript.html
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while
+Jeff Greenberg - http://home.earthlink.net/~kendrasg/info/js_opt/
+
+Javascript Statements - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while
 

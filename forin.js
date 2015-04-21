@@ -19,8 +19,7 @@ function test() {
 var ar = new Array(1000000);
 for( i in ar) {
   i =1;
-}
-
+ }
 }
 
 //alternative
