@@ -9,11 +9,11 @@
 
 The files in this repository cover various looping statements, techniques, and optimizations in Javascript and I will make a small testing framework to demonstrate the performance of various types of loops and patterns. 
 
-If you are on a Linux box with node installed you can run ./test.sh which will run each of the Javascript files and output the timings. You should disregard the first test of each run because the javascript interpretor is setting up the array and functions. This also explains why I run each test 10 times.
+If you are on a Linux box with node installed you can run ./test.sh which will run each of the Javascript files and output the timings. You should disregard the first test of each run because the Javascript interpretor is setting up the array and functions. This also explains why I run each test 10 times.
 
 I had to limit the number of loops in order to keep the foreach and forin test code manageable. If you throw out the foreach you could increase the 1000000 to 10000000 which will show the differences in the other looping examples.
 
-## The Loops
+## Loop Statements
 ### do while
 
 The basic idea behind do while is that you want to loop until a condition is met.
@@ -44,7 +44,7 @@ Syntax:
     statements;
     }
 ```
-#### INFINITE LOOP
+#### Infinite Loop (CAUTION)
 
 while(true) {};
  or
@@ -114,7 +114,7 @@ for( i in ar) {
 }
 ```
 
-### Array forEach
+### for..Each
 
 With this loop you iterate through an array and call a function to be operated on each element.
 
