@@ -113,13 +113,12 @@ for( i in ar) {
   }
 }
 ```
-Warning: for..in is depricated and being replaced with for..of see mozilla reference for more information and examples.
 
 ### for..Each
 
 With this loop you iterate through an array and call a function to be operated on each element.
 
-Example:
+Example using protype array.forEach():
 ```javascript
 function changeit(i) { i=1 };  //function that will change the element
 
@@ -129,6 +128,7 @@ ar.forEach(changeit); //iterates through the elements of the array
 }
 ```
 
+Warning: for..in is depricated and being replaced with for..of see mozilla reference for more information and examples.
 
 ## Optimizations
 ### Array Lengths
@@ -156,7 +156,7 @@ But the optimal form for speed will be something like this. But you will be proc
   while(k--) dosomething;
 ```
 
-#### Supper
+#### Super
 Super optimization Duff's Device created by programmer Tom Duff of Lucas Films was to unroll the loop in C, and was later converted to javascript by Jeff Greenberg (see references at end)
 
 ```javascript
