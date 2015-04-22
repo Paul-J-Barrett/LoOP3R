@@ -205,3 +205,9 @@ Jeff Greenberg - http://home.earthlink.net/~kendrasg/info/js_opt/
 
 Javascript Statements - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while
 
+### Further Readings
+Eloquent Javascript - http://eloquentjavascript.net/02_program_structure.html
+
+You Don't Know Javascript - https://github.com/getify/You-Dont-Know-JS/blob/master/up%20&%20going/ch1.md#loops
+
+
