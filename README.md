@@ -113,6 +113,7 @@ for( i in ar) {
   }
 }
 ```
+Warning: for..in is depricated and being replaced with for..of see mozilla reference for more information and examples.
 
 ### for..Each
 
